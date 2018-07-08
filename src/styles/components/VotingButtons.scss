@@ -1,0 +1,16 @@
+.buttons {
+  display: flex;
+  justify-content: space-around;
+
+  margin-top: 10px;
+}
+
+.buttons__btn {
+  background: #fff;
+  border: 1px solid #999;
+}
+
+.buttons__btn--selected {
+  background: #000;
+  color: #fff;
+}

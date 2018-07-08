@@ -1,15 +1,23 @@
-.numbers-component {
+.numbers {
   width: 400px;
 }
 
-.numbers-only {
+.numbers__label {
+  font-size: 24px;
+}
+
+.numbers__input {
   width: 100%;
   padding: 10px;
   margin: 3px;
   font-size: 24px;
-  border: 5px solid #AAA;
+  border: 5px solid #aaa;
 }
 
-.error {
-  border: 5px solid red;
+.numbers__input--invalid {
+  border-color: red;
+}
+
+.numbers__input--valid {
+  border-color: green;
 }

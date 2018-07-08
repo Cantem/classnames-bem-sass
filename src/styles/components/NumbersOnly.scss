@@ -1,0 +1,21 @@
+@import "../base/colours";
+
+.numbers {
+  width: 400px;
+
+  &__input {
+    width: 100%;
+    padding: 10px;
+    margin: 3px;
+    font-size: 24px;
+    border: 5px solid $border-color;
+
+    &--invalid {
+      border-color: $invalid;
+    }
+
+    &--valid {
+      border-color: $valid;
+    }
+  }
+}

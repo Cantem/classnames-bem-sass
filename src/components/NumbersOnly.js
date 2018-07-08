@@ -1,43 +1,51 @@
-import React from 'react';
-import cx from 'classnames';
+import React from "react";
+import cx from "classnames";
+import "../styles/components/NumbersOnly.scss";
 
 class NumbersOnly extends React.Component {
-
-  constructor(props){
+  constructor(props) {
     super(props);
 
     this.state = {
       error: false,
-      value: ''
+      value: "",
+      cardLength: false
     };
 
     this.handleChange = this.handleChange.bind(this);
   }
 
-  handleChange(event){
+  handleChange(event) {
     event.preventDefault();
 
+    const shortString = event.target.value.substring(0, 16);
+
     this.setState({
-      value: event.target.value,
-      error: isNaN(event.target.value)
-    })
+      value: shortString,
+      error: isNaN(shortString),
+      cardLength: shortString.length === 16 && !isNaN(shortString)
+    });
   }
 
-  render(){
+  render() {
+    const classes = cx("numbers__input", {
+      "numbers__input--invalid": this.state.error,
+      "numbers__input--valid": this.state.cardLength
+    });
     return (
-      <div className="numbers-component">
-        <label htmlFor="numbers">Please enter numbers only</label>
+      <div className="numbers">
+        <label htmlFor="numbers" className="numbers__label">
+          Please enter numbers only
+        </label>
         <input
           type="text"
           id="numbers"
-          className={cx('numbers-only', {
-            error: this.state.error
-          })}
+          className={classes}
           value={this.state.value}
           onChange={this.handleChange}
         />
       </div>
-    )
+    );
   }
 }
 
